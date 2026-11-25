@@ -1,16 +1,39 @@
 package builder;
 
-public interface ComputadorBuilder {
+public class ComputadorBuilder {
 
-    void reiniciar();
+    private String processador;
+    private int memoria;
+    private int armazenamento = 256;
+    private String placaDeVideo = "Integrada";
 
-    void construirProcessador();
+    public ComputadorBuilder processador(String processador) {
+        this.processador = processador;
+        return this;
+    }
 
-    void construirMemoria();
+    public ComputadorBuilder memoria(int memoria) {
+        this.memoria = memoria;
+        return this;
+    }
 
-    void construirArmazenamento();
+    public ComputadorBuilder armazenamento(int armazenamento) {
+        this.armazenamento = armazenamento;
+        return this;
+    }
 
-    void construirPlacaDeVideo();
+    public ComputadorBuilder placaDeVideo(String placaDeVideo) {
+        this.placaDeVideo = placaDeVideo;
+        return this;
+    }
 
-    Computador getComputador();
+    public Computador build() {
+        if (processador == null) {
+            throw new IllegalStateException("Processador é obrigatório");
+        }
+        if (memoria <= 0) {
+            throw new IllegalStateException("Memória é obrigatória");
+        }
+        return new Computador(processador, memoria, armazenamento, placaDeVideo);
+    }
 }

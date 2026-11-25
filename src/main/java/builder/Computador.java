@@ -2,24 +2,15 @@ package builder;
 
 public class Computador {
 
-    private String processador;
-    private int memoria;
-    private int armazenamento;
-    private String placaDeVideo;
+    private final String processador;
+    private final int memoria;
+    private final int armazenamento;
+    private final String placaDeVideo;
 
-    void setProcessador(String processador) {
+    Computador(String processador, int memoria, int armazenamento, String placaDeVideo) {
         this.processador = processador;
-    }
-
-    void setMemoria(int memoria) {
         this.memoria = memoria;
-    }
-
-    void setArmazenamento(int armazenamento) {
         this.armazenamento = armazenamento;
-    }
-
-    void setPlacaDeVideo(String placaDeVideo) {
         this.placaDeVideo = placaDeVideo;
     }
 
